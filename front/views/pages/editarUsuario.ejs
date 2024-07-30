@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head'); %>
+        <title>Editar Usuario</title>
+</head>
+
+<body class="container">
+    <header><%- include('../partials/header'); %></header>
+
+    <main>
+        <h1>Editar Usuario</h1>
+        <form action="/v1/usuarios/<%= usuario._id %>/editar" method="POST">
+            <div>
+                <label for="correo">Correo:</label>
+                <input type="text" id="correo" name="correo" value="<%= usuario.correo %>" required />
+            </div>
+            <div>
+                <label for="rol">Rol:</label>
+                <input type="text" id="rol" name="rol" value="<%= usuario.rol %>" required />
+            </div>
+            <div>
+                <label for="pass">Pass:</label>
+                <input type="text" id="pass" name="pass" value="<%= usuario.pass %>" required />
+            </div>
+            <button type="submit">Actualizar</button>
+        </form>
+        <a href="/v1/usuarios/<%= usuario._id %>">Volver a los detalles</a>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+    
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <h1>Lista de Usuarios</h1>
+        <a href="/v1/usuarios/nuevo">Nuevo Usuario</a>
+        <table id="table" class="display">
+            <thead>
+                <tr>
+                    <th>Correo</th>
+                    <th>Pass</th>
+                    <th>Rol</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuarios.forEach(usuario=> { %>
+                    <tr>
+                        <td>
+                            <%= usuario.correo %>
+                        </td>
+                        <td>
+                            <%= usuario.pass %>
+                        </td>
+                        <td>
+                            <%= usuario.rol %>
+                        </td>
+                        <td>
+                            <a href="/v1/usuarios/<%= usuario._id %>">Ver</a>
+                            <a href="/v1/usuarios/<%= usuario._id %>/editar">Editar</a>
+                            <form action="/v1/usuarios/<%= usuario._id %>/eliminar" method="POST"
+                                style="display:inline;">
+                                <button type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+
+        </table>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+    <%- include('../partials/_scripts') %>
+</body>
+
+</html>

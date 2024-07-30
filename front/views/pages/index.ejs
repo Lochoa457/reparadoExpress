@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+<!--    <div class="jumbotron">
+        <h1>This is great</h1>
+        <p>Welcome to templating using EJS</p>
+    </div>-->
+    <h2>Variable</h2>
+    <ul>
+        <% mascots.forEach(function(mascot) { %>
+            <li>
+                <strong><%= mascot.correo %></strong>
+                representing <%= mascot.organization %>, born <%= mascot.birth_year %>
+            </li>
+        <% }); %>
+    </ul>
+    <table id="datatable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Correo</th>
+                <th>Pass</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% usuarios.forEach(usuario => { %>
+            <tr>
+                <td><%= usuario.correo %></td>
+                <td><%= usuario.pass %></td>
+                <td><%= usuario.rol %></td>
+                <td>
+                    <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal" onclick="fillData(`<%= librarian._id %>`, `<%= librarian.fullname %>`, `<%= librarian.email %>`, `<%= librarian.phone %>`)"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-outline-danger" onclick="deleteRecord(`deleteuser/<%= librarian._id %>`)"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

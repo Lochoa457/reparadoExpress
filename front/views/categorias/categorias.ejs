@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <h1>Lista de Categorías</h1>
+        <a href="/v1/categorias/nueva">Nuevo categoría</a>
+        <table id="table" class="display">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categorias.forEach(categoria=> { %>
+                    <tr>
+                        <td>
+                            <%= categoria.nombre %>
+                        </td>
+                        <td>
+                            <%= categoria.descripcion %>
+                        </td>
+                        <td>
+                            <!-- <a href="/v1/categorias/<%= categoria._id %>">Ver</a>
+                            <a href="/v1/categorias/<%= categoria._id %>/editar">Editar</a>
+                            <form action="/v1/categorias/<%= categoria._id %>/eliminar" method="POST"
+                                style="display:inline;">
+                                <button type="submit">Eliminar</button>
+                            </form> -->
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+
+        </table>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+    <!-- jQuery -->
+    <%- include('../partials/_scripts') %>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <h1>Nuevo Usuario</h1>
+        <form action="/v1/usuarios" method="POST">
+            <div>
+                <label for="correo">Correo:</label>
+                <input type="text" id="correo" name="correo" required>
+            </div>
+            <div>
+                <label for="rol">Rol:</label>
+                <input type="text" id="rol" name="rol" required>
+            </div>
+            <div>
+                <label for="pass">Pass:</label>
+                <input type="text" id="pass" name="pass" required>
+            </div>
+            <button type="submit">Crear</button>
+        </form>
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>

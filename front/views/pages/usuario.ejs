@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head'); %>
+        <title>Detalles del Usuario</title>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <h1>Detalles del Usuario</h1>
+        <table id="datatable" class="table table-striped">
+            <tr>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Opciones</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= usuario.correo %>
+                </td>
+                <td>
+                    <%= usuario.rol %>
+                </td>
+                <td>
+                    <a href="/v1/usuarios/<%= usuario._id %>/editar">Editar</a>
+                    <a href="/v1/usuarios">Volver a la lista</a>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
